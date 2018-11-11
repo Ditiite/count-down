@@ -1,20 +1,27 @@
+
 import React, { Component } from 'react';
-import { Text, FlatList, StyleSheet } from 'react-native';
-import EventCard from './EventCard';
+import {
+    StyleSheet,
+    FlatList,
+} from 'react-native';
 import ActionButton from 'react-native-action-button';
+import EventCard from './EventCard';
 import { getEvents } from './api';
 
 const styles = StyleSheet.create({
     list: {
         flex: 1,
-        paddingTop: 20,
-        backgroundColor: '#F3F3F3'
+        paddingTop: 5,
     },
 });
 
 class EventList extends Component {
+    static navigationOptions = {
+        title: 'Your Events',
+    };
+
     state = {
-        events: []
+        events: [],
     }
 
     componentDidMount() {
@@ -36,22 +43,29 @@ class EventList extends Component {
     }
 
     handleAddEvent = () => {
-        this.props.navigation.navigate('form');
+        this.props.navigation.navigate('form')
     }
 
+
     render() {
-        return[
-            <FlatList 
+        // console.log('isfocused', this.props.navigation.isFocused);
+        return [
+            <FlatList
                 key="flatlist"
-                style={styles.list}
                 data={this.state.events}
-                renderItem={({item}) => <EventCard event={item} />}
+                style={styles.list}
                 keyExtractor={item => item.id}
+                renderItem={({ item, separators }) => (
+                    <EventCard
+                        event={item}
+                    />
+                )}
             />,
             <ActionButton
                 key="fab"
+                buttonColor="rgba(231,76,60,1)"
                 onPress={this.handleAddEvent}
-                buttonColor="rgba(231, 76, 60, 1)" />
+            />,
         ];
     }
 }

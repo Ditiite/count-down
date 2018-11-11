@@ -10,6 +10,8 @@ import {
     getCountdownParts,
 } from './api';
 
+
+
 const styles = StyleSheet.create({
     card: {
         backgroundColor: '#fff',
@@ -109,10 +111,3 @@ export default function EventCard({ event }) {
         </View>
     );
 }
-
-EventCard.propTypes = {
-    event: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        date: PropTypes.instanceOf(Date)
-    }),
-};
