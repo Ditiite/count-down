@@ -5,7 +5,10 @@
     "slug": "count-down",
     "privacy": "public",
     "sdkVersion": "31.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +25,16 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "isDetached": true,
+    "detach": {
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.9.0-sdk31.0.0-91d15219-d0a0-42a6-8f40-a768710d4664.tar.gz"
+    },
+    "scheme": "exp12c898015527462a8b6cf1236fe73db9",
+    "android": {
+      "package": "Hello.World",
+      "publishBundlePath": "android\\app\\src\\main\\assets\\shell-app.bundle",
+      "publishManifestPath": "android\\app\\src\\main\\assets\\shell-app-manifest.json"
     }
   }
 }
